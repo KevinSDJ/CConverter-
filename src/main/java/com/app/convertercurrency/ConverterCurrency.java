@@ -2,11 +2,17 @@ package com.app.convertercurrency;
 
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+
 /**
  *
  * @author kevinsdj
  */
 public class ConverterCurrency extends javax.swing.JFrame {
+    private final JPanel panelOptions=new ConverterPanelOptions();
+    private final DialgWindow dialgwindow= new DialgWindow();
    
     private final ImageIcon image = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/source/money-transfer (1).png");
     
@@ -14,7 +20,8 @@ public class ConverterCurrency extends javax.swing.JFrame {
         initComponents();
         extraConfigs();
         selectedConverterListenerConf();
-        
+        this.jPanel3.add(this.panelOptions);
+        add(this.dialgwindow);
     }
   
     
@@ -34,17 +41,22 @@ public class ConverterCurrency extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "yellow", "red" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "money", "temp" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel1.setText("Chose your Converter");
+        jLabel1.setText("Choose your converter");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+                .addContainerGap(148, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -53,11 +65,11 @@ public class ConverterCurrency extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 520, 470));
@@ -82,6 +94,10 @@ public class ConverterCurrency extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     public static void main(String args[]) {
         
@@ -115,6 +131,11 @@ public class ConverterCurrency extends javax.swing.JFrame {
     }
     public final void selectedConverterListenerConf(){
         this.jComboBox1.addActionListener((ActionEvent e) -> {
+            if(jComboBox1.getSelectedItem()!="None"){
+                this.panelOptions.setVisible(true);
+            }else{
+                this.panelOptions.setVisible(false);
+            }
             System.out.println(jComboBox1.getSelectedItem());
         });
     }
