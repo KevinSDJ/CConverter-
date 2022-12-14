@@ -2,7 +2,6 @@ package com.app.convertercurrency;
 
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -12,7 +11,6 @@ import javax.swing.JPanel;
  */
 public class ConverterCurrency extends javax.swing.JFrame {
     private final JPanel panelOptions=new ConverterPanelOptions();
-    private final DialgWindow dialgwindow= new DialgWindow();
    
     private final ImageIcon image = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/source/money-transfer (1).png");
     
@@ -21,7 +19,6 @@ public class ConverterCurrency extends javax.swing.JFrame {
         extraConfigs();
         selectedConverterListenerConf();
         this.jPanel3.add(this.panelOptions);
-        add(this.dialgwindow);
     }
   
     
@@ -42,11 +39,6 @@ public class ConverterCurrency extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "money", "temp" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setText("Choose your converter");
@@ -95,9 +87,7 @@ public class ConverterCurrency extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+   
 
     public static void main(String args[]) {
         
