@@ -40,7 +40,7 @@ public class ConverterCurrency extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "money", "temp" }));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); 
         jLabel1.setText("Choose your converter");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -67,7 +67,7 @@ public class ConverterCurrency extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 520, 470));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 130));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 18)); 
         jLabel3.setForeground(new java.awt.Color(60, 63, 65));
         jLabel3.setText("CConverter +");
         jLabel3.setAlignmentX(0.5F);
@@ -85,8 +85,7 @@ public class ConverterCurrency extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
+    }
    
 
     public static void main(String args[]) {
@@ -131,13 +130,13 @@ public class ConverterCurrency extends javax.swing.JFrame {
     }
     
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+   
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    // End of variables declaration//GEN-END:variables
+   
 
 }
