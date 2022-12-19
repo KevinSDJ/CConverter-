@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public enum CurrencyCountries {
 
+    NONE("none",null),
     DOLLAR("dollar",172.70);
 
     private final String key;
@@ -21,7 +22,6 @@ public enum CurrencyCountries {
     }
     public static  Vector<String> currencies(){
         Vector<String> m = new Vector<>(CurrencyCountries.values().length);
-        m.addElement(null);
         for(CurrencyCountries d:CurrencyCountries.values()){
             m.addElement(d.getKey());
         }

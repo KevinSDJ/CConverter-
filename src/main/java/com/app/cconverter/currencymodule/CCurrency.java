@@ -8,7 +8,6 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
-
 import com.app.cconverter.Data.CurrencyCountries;
 import com.app.cconverter.utils.AlertDialg;
 
@@ -63,12 +62,25 @@ public class CCurrency extends JPanel {
                 convertBtn.setBackground(new Color(43, 98, 166));
             }
             public void mouseClicked(java.awt.event.MouseEvent event){
-
-                AlertDialg.alertMessage(
+                Double value=null;
+                try{
+                    value=Double.valueOf(inputValueToConvert.getText());
+                    AlertDialg.alertMessage(
                     convertBtn,
-                    inputValueToConvert.getText(),
-                    "alert",
+                    value,
+                    "warning",
                     1);
+                }catch(NumberFormatException ex){
+                    System.out.println(ex.getMessage());
+                    AlertDialg.alertMessage(
+                    convertBtn,
+                    "input empty or value is not a number",
+                    "error",
+                    0);
+                }finally{
+                    inputValueToConvert.setText(null);
+                }
+
             }
         });
     }

@@ -7,7 +7,6 @@ import com.app.cconverter.currencymodule.CCurrency;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
-
 /**
  *
  * @author kevinsdj
@@ -127,11 +126,8 @@ public class Cconverter extends javax.swing.JFrame {
             }else{
                 this.panelOptions.setVisible(false);
             }
-            System.out.println(jComboBox1.getSelectedItem());
         });
     }
-    
-
    
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
