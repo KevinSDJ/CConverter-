@@ -5,14 +5,14 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
 
+import com.app.cconverter.Data.CurrencyCountries;
+import com.app.cconverter.utils.AlertDialg;
+
 public class CCurrency extends JPanel {
-    
-    private final String[] options = {"one","two"};
     private JComboBox<String> currencyoptions;
     private JTextField inputValueToConvert;
     private JButton convertBtn;
@@ -32,10 +32,9 @@ public class CCurrency extends JPanel {
         
     }
     private void initComponents(){
-        currencyoptions= new JComboBox<String>(options);
+        currencyoptions= new JComboBox<String>(CurrencyCountries.currencies());
         // combox options config
         currencyoptions.setFont(new java.awt.Font("Roboto Light", 1, 14));
-
         //--
         inputValueToConvert= new JTextField();
         // text field config
@@ -64,12 +63,14 @@ public class CCurrency extends JPanel {
                 convertBtn.setBackground(new Color(43, 98, 166));
             }
             public void mouseClicked(java.awt.event.MouseEvent event){
-                alertMessage("Hola desde button");
+
+                AlertDialg.alertMessage(
+                    convertBtn,
+                    inputValueToConvert.getText(),
+                    "alert",
+                    1);
             }
         });
-    }
-    private void alertMessage(String message){
-        JOptionPane.showMessageDialog(this, message);
     }
 
 }

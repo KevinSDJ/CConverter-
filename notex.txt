@@ -1,6 +1,6 @@
 ejecutar projecto java con maven:
 
-mvn exec:java -Dexec.mainClass=com.app.convertercurrency.ConverterCurrency
+mvn exec:java -Dexec.mainClass=com.app.cconverter.Cconverter
 
 
 
