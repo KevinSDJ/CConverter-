@@ -1,20 +1,23 @@
-package com.app.convertercurrency;
+package com.app.cconverter;
 
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import com.app.cconverter.currencymodule.CCurrency;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 
 /**
  *
  * @author kevinsdj
  */
-public class ConverterCurrency extends javax.swing.JFrame {
-    private final JPanel panelOptions=new ConverterPanelOptions();
+public class Cconverter extends javax.swing.JFrame {
+    private final JPanel panelOptions=new CCurrency();
    
     private final ImageIcon image = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/source/money-transfer (1).png");
     
-    public ConverterCurrency() {
+    public Cconverter() {
         initComponents();
         extraConfigs();
         selectedConverterListenerConf();
@@ -35,8 +38,7 @@ public class ConverterCurrency extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(32, 181, 189));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        jPanel1.setLayout(new AbsoluteLayout());
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "money", "temp" }));
 
@@ -64,14 +66,14 @@ public class ConverterCurrency extends javax.swing.JFrame {
                 .addContainerGap(357, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 520, 470));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 130));
+        jPanel1.add(jPanel3, new AbsoluteConstraints(250, 0, 520, 470));
+        jPanel1.add(jLabel2, new AbsoluteConstraints(60, 100, 130, 130));
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 18)); 
         jLabel3.setForeground(new java.awt.Color(60, 63, 65));
         jLabel3.setText("CConverter +");
         jLabel3.setAlignmentX(0.5F);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 120, 50));
+        jPanel1.add(jLabel3, new AbsoluteConstraints(70, 230, 120, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,17 +101,17 @@ public class ConverterCurrency extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConverterCurrency.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cconverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConverterCurrency.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cconverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConverterCurrency.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cconverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConverterCurrency.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cconverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
        
         java.awt.EventQueue.invokeLater(() -> {
-            new ConverterCurrency().setVisible(true);
+            new Cconverter().setVisible(true);
         });
     }
 
