@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
+
 import com.app.cconverter.Data.CurrencyCountries;
 import com.app.cconverter.utils.AlertDialg;
 
@@ -18,7 +19,7 @@ public class CCurrency extends JPanel {
     public CCurrency(){
         configUI();
         initComponents();
-        buttonHoverActionConfig();
+        buttonActionsConfig();
     }
 
     public void  configUI(){
@@ -31,17 +32,16 @@ public class CCurrency extends JPanel {
         
     }
     private void initComponents(){
-        currencyoptions= new JComboBox<String>(CurrencyCountries.currencies());
         // combox options config
+        currencyoptions= new JComboBox<String>(CCurrencyMethods.getOptions());
         currencyoptions.setFont(new java.awt.Font("Roboto Light", 1, 14));
         //--
+        // text field config
         inputValueToConvert= new JTextField();
-        // text field config
         inputValueToConvert.setFont(new java.awt.Font("Roboto Bold", 1, 18));
-
         //--
+        // Button config
         convertBtn= new JButton("convert");
-        // text field config
         convertBtn.setAlignmentX(CENTER_ALIGNMENT);
         convertBtn.setFont(new java.awt.Font("Roboto Medium", 1, 14));
         convertBtn.setBackground(new Color(43, 98, 166));
@@ -53,7 +53,7 @@ public class CCurrency extends JPanel {
         add(Box.createRigidArea(new DimensionUIResource(10, 10)));
         add(convertBtn);
     }
-    private void buttonHoverActionConfig(){
+    private void buttonActionsConfig(){
         convertBtn.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseEntered(java.awt.event.MouseEvent event){
                 convertBtn.setBackground(new Color(66, 138, 227));
@@ -65,10 +65,11 @@ public class CCurrency extends JPanel {
                 Double value=null;
                 try{
                     value=Double.valueOf(inputValueToConvert.getText());
+                    Double valueconvetion= converterAction(currencyoptions.getSelectedItem().toString(), value);
                     AlertDialg.alertMessage(
                     convertBtn,
-                    value,
-                    "warning",
+                    valueconvetion,
+                    "info",
                     1);
                 }catch(NumberFormatException ex){
                     System.out.println(ex.getMessage());
@@ -85,4 +86,11 @@ public class CCurrency extends JPanel {
         });
     }
 
+    private Double converterAction(String type,Double value){
+        return switch(type){
+            case "local_to_dollar" -> (value*CurrencyCountries.DOLLAR.getValue()/1);
+            case "local_to_Euro" -> (value*CurrencyCountries.EURO.getValue()/1);
+            default -> 0.0;
+        };
+    }
 }
