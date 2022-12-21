@@ -17,7 +17,9 @@ import com.app.cconverter.Data.CurrencyCountries;
 public class CCurrencyMethods {
     private static final List<String> options= Arrays.asList(
       "local_to_dollar","local_to_Euro","local_to_PoundSterling",
-      "local_to_YenJp","local_to_Won southcorea"
+      "local_to_YenJp","local_to_Won southcorea","from_dollar_to_Local",
+      "from_euro_to_Local","from_PoundSterling_to_Local","from_YenJp_to_Local",
+      "from_Won_southcorea_to_Local"
       );
 
     public CCurrencyMethods() {}
@@ -36,15 +38,15 @@ public class CCurrencyMethods {
     /*
      * reverse methods
     */
-    protected static Double FromDollar_to_Local(Double value){ return value;}
+    protected static Double FromDollar_to_Local(Double value){ return Math.round((value/CurrencyCountries.DOLLAR.getValue())*1000.0)/1000.0;}
 
-    protected static Double FromEuro_to_Local(Double value){ return value;}
+    protected static Double FromEuro_to_Local(Double value){ return Math.round((value/CurrencyCountries.EURO.getValue())*1000.0)/1000.0;}
 
-    protected static Double FromPoundSterling_to_Local(Double value){ return value;};
+    protected static Double FromPoundSterling_to_Local(Double value){ return Math.round((value/CurrencyCountries.POUNDSTERLING.getValue())*1000.0)/1000.0;};
 
-    protected static Double FromYenJp_to_Local(Double value){ return value;}
+    protected static Double FromYenJp_to_Local(Double value){ return Math.round((value/CurrencyCountries.YENJP.getValue())*1000.0)/1000.0;}
 
-    protected static Double FromWonSrCorea_to_Local(Double value){ return value;}
+    protected static Double FromWonSrCorea_to_Local(Double value){ return Math.round((value/CurrencyCountries.WONSRCOREAN.getValue())*1000.0)/1000.0;}
 
     protected static Vector<String> getOptions(){
       Vector<String> vector= new Vector<>(options);

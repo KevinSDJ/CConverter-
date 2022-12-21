@@ -93,6 +93,11 @@ public class CCurrency extends JPanel {
             case "local_to_PoundSterling" ->CurrencyCountriesSimbols.POUNDSTERLING.getValue()+CCurrencyMethods.FromLocal_To_PoundSterling(value);
             case "local_to_YenJp" -> CurrencyCountriesSimbols.YEN_JP.getValue()+CCurrencyMethods.FromLocal_To_YenJp(value);
             case "local_to_Won southcorea" -> CurrencyCountriesSimbols.WON_SURCOREAN.getValue()+CCurrencyMethods.FromLocal_To_WonSrCorea(value);
+            case "from_dollar_to_Local" -> "$ "+CCurrencyMethods.FromDollar_to_Local(value);
+            case "from_euro_to_Local" -> "$ "+CCurrencyMethods.FromEuro_to_Local(value);
+            case "from_PoundSterling_to_Local" -> "$ "+CCurrencyMethods.FromPoundSterling_to_Local(value);
+            case "from_YenJp_to_Local" -> "$ "+CCurrencyMethods.FromLocal_To_YenJp(value);
+            case "from_Won_southcorea_to_Local" -> "$ "+CCurrencyMethods.FromLocal_To_WonSrCorea(value);
             default ->"";
         };
     }
