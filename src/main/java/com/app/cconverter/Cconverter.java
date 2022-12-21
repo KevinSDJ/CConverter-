@@ -20,10 +20,9 @@ public class Cconverter extends javax.swing.JFrame {
         initComponents();
         extraConfigs();
         selectedConverterListenerConf();
-        this.jPanel3.add(this.panelOptions);
+
     }
   
-    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -39,7 +38,7 @@ public class Cconverter extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(32, 181, 189));
         jPanel1.setLayout(new AbsoluteLayout());
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "money", "temp" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "currency" }));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); 
         jLabel1.setText("Choose your converter");
@@ -122,10 +121,13 @@ public class Cconverter extends javax.swing.JFrame {
     public final void selectedConverterListenerConf(){
         this.jComboBox1.addActionListener((ActionEvent e) -> {
             if(jComboBox1.getSelectedItem()!="None"){
-                this.panelOptions.setVisible(true);
+                if(jComboBox1.getSelectedItem()=="currency"){
+                    this.jPanel3.add(this.panelOptions);
+                }
             }else{
-                this.panelOptions.setVisible(false);
+                this.jPanel3.remove(this.jPanel3.getComponents()[2]);
             }
+            this.jPanel3.repaint();
         });
     }
    

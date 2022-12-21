@@ -5,8 +5,11 @@ import java.util.Vector;
 public enum CurrencyCountries {
 
     NONE("none",null),
-    DOLLAR("dollar",0.0058),
-    EURO("euro",0.0054);
+    DOLLAR("dollar",0.0057),
+    EURO("euro",0.0054),
+    POUNDSTERLING("libra_sterlina",0.0048),
+    YENJP("yen_jp",0.76),
+    WONSRCOREAN("won_surcorean",7.40);
 
     private final String key;
     private final Double value;

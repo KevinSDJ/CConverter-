@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
 
-import com.app.cconverter.Data.CurrencyCountries;
+import com.app.cconverter.Data.CurrencyCountriesSimbols;
 import com.app.cconverter.utils.AlertDialg;
 
 public class CCurrency extends JPanel {
@@ -25,7 +25,6 @@ public class CCurrency extends JPanel {
     public void  configUI(){
         setSize(400,110);
         setLocation(70, 150);
-        setVisible(false);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(Box.createVerticalGlue());
         setAlignmentX(CENTER_ALIGNMENT);
@@ -65,10 +64,11 @@ public class CCurrency extends JPanel {
                 Double value=null;
                 try{
                     value=Double.valueOf(inputValueToConvert.getText());
-                    Double valueconvetion= converterAction(currencyoptions.getSelectedItem().toString(), value);
+                    String valueconvertion=converterAction(currencyoptions.getSelectedItem().toString(), value);
+                    
                     AlertDialg.alertMessage(
                     convertBtn,
-                    valueconvetion,
+                    valueconvertion,
                     "info",
                     1);
                 }catch(NumberFormatException ex){
@@ -86,11 +86,14 @@ public class CCurrency extends JPanel {
         });
     }
 
-    private Double converterAction(String type,Double value){
+    private String converterAction(String type,Double value){
         return switch(type){
-            case "local_to_dollar" -> (value*CurrencyCountries.DOLLAR.getValue()/1);
-            case "local_to_Euro" -> (value*CurrencyCountries.EURO.getValue()/1);
-            default -> 0.0;
+            case "local_to_dollar" -> CurrencyCountriesSimbols.DOLLAR.getValue()+CCurrencyMethods.FromLocal_To_Dollar(value);
+            case "local_to_Euro" -> CurrencyCountriesSimbols.EURO.getValue()+CCurrencyMethods.FromLocal_To_Euro(value);
+            case "local_to_PoundSterling" ->CurrencyCountriesSimbols.POUNDSTERLING.getValue()+CCurrencyMethods.FromLocal_To_PoundSterling(value);
+            case "local_to_YenJp" -> CurrencyCountriesSimbols.YEN_JP.getValue()+CCurrencyMethods.FromLocal_To_YenJp(value);
+            case "local_to_Won southcorea" -> CurrencyCountriesSimbols.WON_SURCOREAN.getValue()+CCurrencyMethods.FromLocal_To_WonSrCorea(value);
+            default ->"";
         };
     }
 }
