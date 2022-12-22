@@ -16,14 +16,13 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 public class Cconverter extends javax.swing.JFrame {
     private final JPanel panelOptions=new CCurrency();
     private final JPanel panelTemperature= new Ctemperature();
-   
+    
     private final ImageIcon image = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/source/money-transfer (1).png");
     
     public Cconverter() {
         initComponents();
         extraConfigs();
         selectedConverterListenerConf();
-
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
