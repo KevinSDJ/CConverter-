@@ -48,7 +48,7 @@ public class CCurrencyMethods {
 
     protected static Double FromWonSrCorea_to_Local(Double value){ return Math.round((value/CurrencyCountries.WONSRCOREAN.getValue())*1000.0)/1000.0;}
 
-    protected static Vector<String> getOptions(){
+    public static Vector<String> getOptions(){
       Vector<String> vector= new Vector<>(options);
       return vector;
     }

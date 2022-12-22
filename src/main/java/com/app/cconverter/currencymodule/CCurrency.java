@@ -1,6 +1,7 @@
 package com.app.cconverter.currencymodule;
 
 import java.awt.Color;
+import java.util.Vector;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -8,7 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
-
 import com.app.cconverter.Data.CurrencyCountriesSimbols;
 import com.app.cconverter.utils.AlertDialg;
 
@@ -16,6 +16,7 @@ public class CCurrency extends JPanel {
     private JComboBox<String> currencyoptions;
     private JTextField inputValueToConvert;
     private JButton convertBtn;
+    
     public CCurrency(){
         configUI();
         initComponents();
@@ -32,7 +33,7 @@ public class CCurrency extends JPanel {
     }
     private void initComponents(){
         // combox options config
-        currencyoptions= new JComboBox<String>(CCurrencyMethods.getOptions());
+        currencyoptions= new JComboBox<String>(getOptions());
         currencyoptions.setFont(new java.awt.Font("Roboto Light", 1, 14));
         //--
         // text field config
@@ -86,7 +87,7 @@ public class CCurrency extends JPanel {
         });
     }
 
-    private String converterAction(String type,Double value){
+    public String converterAction(String type,Double value){
         return switch(type){
             case "local_to_dollar" -> CurrencyCountriesSimbols.DOLLAR.getValue()+CCurrencyMethods.FromLocal_To_Dollar(value);
             case "local_to_Euro" -> CurrencyCountriesSimbols.EURO.getValue()+CCurrencyMethods.FromLocal_To_Euro(value);
@@ -100,5 +101,9 @@ public class CCurrency extends JPanel {
             case "from_Won_southcorea_to_Local" -> "$ "+CCurrencyMethods.FromLocal_To_WonSrCorea(value);
             default ->"";
         };
+    }
+
+    public Vector<String> getOptions(){
+        return CCurrencyMethods.getOptions();
     }
 }

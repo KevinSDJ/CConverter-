@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import com.app.cconverter.currencymodule.CCurrency;
+import com.app.cconverter.temperatureModule.Ctemperature;
+
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
@@ -13,6 +15,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
  */
 public class Cconverter extends javax.swing.JFrame {
     private final JPanel panelOptions=new CCurrency();
+    private final JPanel panelTemperature= new Ctemperature();
    
     private final ImageIcon image = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/source/money-transfer (1).png");
     
@@ -22,7 +25,6 @@ public class Cconverter extends javax.swing.JFrame {
         selectedConverterListenerConf();
 
     }
-  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -38,7 +40,7 @@ public class Cconverter extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(32, 181, 189));
         jPanel1.setLayout(new AbsoluteLayout());
         jComboBox1.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "currency" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "currency","temperature" }));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); 
         jLabel1.setText("Choose your converter");
@@ -122,12 +124,17 @@ public class Cconverter extends javax.swing.JFrame {
         this.jComboBox1.addActionListener((ActionEvent e) -> {
             if(jComboBox1.getSelectedItem()!="None"){
                 if(jComboBox1.getSelectedItem()=="currency"){
+                    this.jPanel3.remove(this.panelTemperature);
                     this.jPanel3.add(this.panelOptions);
+                }else if(jComboBox1.getSelectedItem()=="temperature"){
+                    this.jPanel3.remove(this.panelOptions);
+                    this.jPanel3.add(this.panelTemperature);
                 }
+                this.jPanel3.repaint();
             }else{
-                this.jPanel3.remove(this.jPanel3.getComponents()[2]);
+                this.jPanel3.remove(2);
+                this.jPanel3.repaint();
             }
-            this.jPanel3.repaint();
         });
     }
    
